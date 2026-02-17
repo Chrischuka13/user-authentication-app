@@ -1,6 +1,6 @@
 import React, {  useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import api from '../api/axios';
 
 const SignUp = () => {
     const API_URL = import.meta.env.VITE_API_URL;
@@ -22,7 +22,7 @@ const SignUp = () => {
         try {
             setIsLoading(true)
             setError("")
-            const response = await axios.post(`${API_URL}/signup`, {username, email, password})
+            const response = await api.post(`${API_URL}/signup`, {username, email, password})
             console.log(response.data);      
             setSuccess("Verification mail sent")
             setTimeout(()=> navigate("/login"), 2000)

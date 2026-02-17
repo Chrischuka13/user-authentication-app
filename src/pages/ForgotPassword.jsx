@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React, { useState } from 'react'
+import api from '../api/axios';
 
 const ForgotPassword = () => {
     const API_URL = import.meta.env.VITE_API_URL;
@@ -19,7 +19,7 @@ const ForgotPassword = () => {
 
         try {
             setIsLoading(true)
-            const response = await axios.post(`${API_URL}/forgotpassword`, {email}) 
+            const response = await api.post(`${API_URL}/forgotpassword`, {email}) 
             setEmail("")
             setSuccess(response.data.message || "Reset link sent to your email.");
             

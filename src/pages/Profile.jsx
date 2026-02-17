@@ -1,7 +1,7 @@
-import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
+import api from '../api/axios'
 
 const Profile = () => {
   const API_URL = import.meta.env.VITE_API_URL;
@@ -19,7 +19,7 @@ const Profile = () => {
   useEffect(()=>{
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(`${API_URL}/profile`, 
+        const response = await api.get(`${API_URL}/profile`, 
           {headers: getAuthHeaders()}
         )
         setData(response.data.user);
