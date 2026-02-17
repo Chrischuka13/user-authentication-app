@@ -4,7 +4,6 @@ import { AuthContext } from '../context/AuthContext'
 import api from '../api/axios'
 
 const Profile = () => {
-  const API_URL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate()
   const {user, logout, getAuthHeaders} = useContext(AuthContext)
   const [data, setData] = useState("null")
@@ -19,7 +18,7 @@ const Profile = () => {
   useEffect(()=>{
     const fetchProfile = async () => {
       try {
-        const response = await api.get(`${API_URL}/profile`, 
+        const response = await api.get("profile", 
           {headers: getAuthHeaders()}
         )
         setData(response.data.user);

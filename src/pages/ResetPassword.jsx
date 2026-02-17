@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import api from '../api/axios';
 
 const ResetPassword = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const navigate = useNavigate()
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
@@ -19,7 +18,7 @@ const ResetPassword = () => {
         }
         try {
             setLoading(true)
-            const response = await api.post(`${API_URL}/resetpassword/${token}`, {password})
+            const response = await api.post(`resetpassword/${token}`, {password})
             setSuccess(response.data.message)
             setPassword("")
             setTimeout(()=> navigate("/login"), 2000)

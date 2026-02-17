@@ -4,7 +4,6 @@ import { Link, useParams } from 'react-router-dom';
 import api from '../api/axios';
 
 const VerifyEmail = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const [isVerified, setIsVerified] = useState(false)
     const [error, setError] = useState("")
     const {token} = useParams()
@@ -17,7 +16,7 @@ const VerifyEmail = () => {
         }
         const verify = async () => {
             try {
-                await api.get(`${API_URL}/verifymail/${token}`)
+                await api.get(`/verifymail/${token}`)
                 setIsVerified(true)
             } catch (err) {
                 setError(err.response?.data?.message || 'Verification failed');
@@ -25,7 +24,7 @@ const VerifyEmail = () => {
             }
         }
         verify()
-    }, [token, API_URL])
+    }, [token])
 
   return (
     <main>

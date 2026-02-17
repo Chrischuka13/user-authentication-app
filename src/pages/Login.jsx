@@ -4,7 +4,6 @@ import { AuthContext } from '../context/AuthContext'
 import api from '../api/axios'
 
 const Login = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
     const {setUser} = useContext(AuthContext)
     const navigate = useNavigate()
     const [email, setEmail] = useState("")
@@ -23,7 +22,7 @@ const Login = () => {
         try {
             setIsLoading(true)
             setError("")
-            const response = await api.post(`${API_URL}/login`, {email, password})
+            const response = await api.post("login", {email, password})
             const data = response.data  
             setUser({
                 email: data.user.email,
