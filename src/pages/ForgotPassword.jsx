@@ -18,7 +18,7 @@ const ForgotPassword = () => {
 
         try {
             setIsLoading(true)
-            const response = await api.post("forgotpassword", {email}) 
+            const response = await api.post("/forgotpassword", {email}) 
             setEmail("")
             setSuccess(response.data.message || "Reset link sent to your email.");
             

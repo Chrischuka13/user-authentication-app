@@ -22,7 +22,7 @@ const Login = () => {
         try {
             setIsLoading(true)
             setError("")
-            const response = await api.post("login", {email, password})
+            const response = await api.post("/login", {email, password})
             const data = response.data  
             setUser({
                 email: data.user.email,

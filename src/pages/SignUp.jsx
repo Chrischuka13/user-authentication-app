@@ -21,7 +21,7 @@ const SignUp = () => {
         try {
             setIsLoading(true)
             setError("")
-            const response = await api.post("signup", {username, email, password})
+            const response = await api.post("/signup", {username, email, password})
             console.log(response.data);      
             setSuccess("Verification mail sent")
             setTimeout(()=> navigate("/login"), 2000)

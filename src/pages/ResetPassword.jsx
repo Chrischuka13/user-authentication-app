@@ -18,7 +18,7 @@ const ResetPassword = () => {
         }
         try {
             setLoading(true)
-            const response = await api.post(`resetpassword/${token}`, {password})
+            const response = await api.post(`/resetpassword/${token}`, {password})
             setSuccess(response.data.message)
             setPassword("")
             setTimeout(()=> navigate("/login"), 2000)

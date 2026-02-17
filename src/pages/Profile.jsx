@@ -18,7 +18,7 @@ const Profile = () => {
   useEffect(()=>{
     const fetchProfile = async () => {
       try {
-        const response = await api.get("profile", 
+        const response = await api.get("/profile", 
           {headers: getAuthHeaders()}
         )
         setData(response.data.user);
